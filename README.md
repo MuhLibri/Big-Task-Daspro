@@ -1,2 +1,2 @@
 # Big-Task-Daspro
-# UNtuk memulai program, jalankan Main.py
+# Untuk memulai program, jalankan Main.py
