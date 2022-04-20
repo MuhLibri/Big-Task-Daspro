@@ -21,11 +21,3 @@ def validasiIdGame(x, dataSource) :
     if count==0 :
         print("Tidak ada game dengan ID tersebut!")
 
-
-
-#dataSource = "C:\Coding\TubesDaspro\gim.csv"
-#x=input()
-#validasiIdGame(x, dataSource)
-#k = make_id(2019, 17, 998)
-#print(k)
-    
