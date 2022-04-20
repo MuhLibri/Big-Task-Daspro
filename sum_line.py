@@ -1,5 +1,4 @@
 def banyakBaris (dataSource):
-    import parse
     f=open(dataSource, 'r')
     data = f.readlines()
     sumOfLine = 0
