@@ -37,11 +37,13 @@ def ubahGame ():
     f.close()
     return [unChanged_line,Changed_line]
 
-def updateFile (unChanged_line,Changed_line,newFile) :
-    g=open(newFile, 'w')
+#Fungsi untuk update data di file csv
+#[Terlanjur dibuat sebelum mengetahui jika harus menggunakan fungsi save]
+def updateFile (unChanged_line,Changed_line) :
+    g=open("store_game.csv", 'w')
     g.writelines(unChanged_line)
     g.close()
-    g=open(newFile, 'a')
+    g=open("store_game.csv", 'a')
     g.writelines(Changed_line)
     g.close()
 
