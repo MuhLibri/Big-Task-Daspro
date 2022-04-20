@@ -13,9 +13,9 @@ def cek_file_user(username, indeks_kolom): #Fungsi untuk mencari data di user.cs
         file_user = open('data_login.csv', 'r')  #indeks_kolom; saldo = 5, user_id = 0
         read_file = file_user.readline()
         while (read_file != ""):
-            if (username == parse(read_file, 6)[2]):
+            if (username == parse(read_file)[2]):
                 file_user.close()
-                return parse(read_file, 6)[indeks_kolom]
+                return parse(read_file)[indeks_kolom]
             read_file = file_user.readline()
             
 def kepemilikan_game(username : str): #Fungsi untuk membuat list berupa game yang dimiliki user
@@ -24,8 +24,8 @@ def kepemilikan_game(username : str): #Fungsi untuk membuat list berupa game yan
         G = []
         userid = cek_file_user(username, 0) #Mendeklarasikan user id yang didapat dari fungsi ke variabel userid
         while (read_file != ""):
-                if (userid == parse(read_file, 5)[0]):
-                    konsDot(G, parse(read_file, 5)[1])
+                if (userid == parse(read_file)[0]):
+                    konsDot(G, parse(read_file)[1])
                 read_file = file_kepemilikan.readline()
         file_kepemilikan.close()
         return G
