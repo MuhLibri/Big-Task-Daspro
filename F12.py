@@ -70,7 +70,7 @@ def topup_procedure(username, saldo_topup, matriks_csv): #Prosedur topup saldo u
         saldo_topup = int(input("Masukan saldo : "))
 
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) + saldo_topup) #Assign saldo baru ke saldo lama (hanya dalam memori) sebelum disave
-    nama = matriks_csv[indeks][2] 
+    matriks_csv[indeks][2]  = nama
 
     if saldo_topup > 0:
         print(f"Top up berhasil. Saldo {nama} bertambah menjadi {(matriks_csv[indeks][5])}.")
