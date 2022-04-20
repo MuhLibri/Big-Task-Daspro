@@ -24,6 +24,8 @@ def tambahGame () :
     f.close()
     return lines
 
+#Fungsi untuk update data di file csv 
+#[terlanjur dibuat sebelum diinfokan harus menggunakan fungsi save]
 def updateLine (lines):
     g=open("store_game.csv", 'a')
     g.writelines(lines)
