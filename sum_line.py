@@ -7,8 +7,6 @@ def banyakBaris (dataSource):
         sumOfLine = sumOfLine + 1
     return(sumOfLine)
 
-#print(banyakBaris("C:\Coding\TubesDaspro\gim.csv"))
-
 def panjangTeks(teks):
     length = 0
     i = 0
@@ -19,7 +17,5 @@ def panjangTeks(teks):
     except:
         length=length
     return(length)
-
-#print(panjangTeks("ABCDEFGHIJK"))
 
         
