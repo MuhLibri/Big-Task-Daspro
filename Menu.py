@@ -6,6 +6,7 @@ from F03 import *
 from F04 import *
 from F05 import *
 from F06 import *
+from F07 import *
 from F08 import *
 from F09 import *
 from F10 import *
@@ -47,6 +48,8 @@ def mainMenu(role,username):
             ubahStok ()
         else: # role == "user"
             print("Maaf, fungsi ini hanya dapat diakses oleh admin")
+    elif (c == "05"):
+        listGameToko ()         
     elif (c == "06"):
         if (role == "user"):
             buy_game(username)
