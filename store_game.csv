@@ -1,0 +1,22 @@
+game_id;nama;kategori;tahun_rilis;harga;stok
+GAME001;Light Body;Hardcore;2016;150000;7
+GAME002;Hadeus;Roguelike;2020;75000;8
+GAME003;ARK;Survival;2017;60000;12
+GAME004;Fortune Night;Indie;2018;50000;15
+GAME005;Need For Speed ITB;Racing;2021;25000;20
+GAME006;Elder Swipe;Fighting;2021;150000;6
+GAME007;Monster Buster Sekai;Open World;2020;200000;9
+GAME008;Pokimain;Adventure;2005;10000;13
+GAME009;Warteg Simulator;Simulation;2022;30000;9
+GAME010;Lost in Time;Roguelike;2022;50000;10
+GAME011;Pengejar Deadline;Platformer;2022;40000;11
+GAME063;Cooking Papa;Cooking;1991;9000;999
+GAME061;Valulant;FPS;1991;6000;50
+GAME067;Siesgo;FPS;1991;1000000000;9
+GAME069;Python Gemink;Coding;1991;69000;21
+GAME156;FGO;RPG;2016;100000;99
+GAME277;Inotia 4;RPG;2012;50000;99
+GAME323;Ninja Saga;RPG;2010;50000;150
+GAME903;Temple Run;Arcade;2011;10000;199
+GAME841;Pou;Arcade;2011;15000;999
+GAME478;Dragon Raja;MMORPG;2018;30000;899
