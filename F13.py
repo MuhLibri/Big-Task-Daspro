@@ -22,7 +22,7 @@ def kepemilikan_game(username : str): #Fungsi untuk membuat list berupa game yan
         file_kepemilikan = open('riwayat.csv', 'r')
         read_file = file_kepemilikan.readline()
         G = []
-        userid = cek_file_user(username, 0) #Mendeklarasikan user id yang didapat dari fungsi user_id() ke variabel userid
+        userid = cek_file_user(username, 0) #Mendeklarasikan user id yang didapat dari fungsi ke variabel userid
         while (read_file != ""):
                 if (userid == parse(read_file, 5)[0]):
                     konsDot(G, parse(read_file, 5)[1])
@@ -40,11 +40,12 @@ def tampilkan_riwayat(username : str): #Prosedur menampilkan riwayat transaksi u
             G = kepemilikan_game(username) #list game yang dimiliki user
             for i in range(panjang(G)):
                 if G[i] == M[1] and cek_file_user(username, 0) == M[0]:
-                    M = parse(read_file)[1:] #menghilangkan kolom pertama yaitu user_id
+                    M = parse(read_file) #menghilangkan kolom pertama yaitu user_id
                     k += 1
                     print(f"{k}.", end = " ")
                     for i in range(panjang(M)):
-                        print(M[i], end = " ")
+                        if i != 0: #menghilangkan kolom pertama yaitu user_id
+                            print(M[i], end = " | ")
                     print("\n")
             read_file = file_game.readline()
         file_game.close()
