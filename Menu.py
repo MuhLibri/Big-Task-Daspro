@@ -13,6 +13,9 @@ from F10 import *
 from F11 import *
 from F12 import *
 from F13 import *
+from F14 import *
+from F15 import *
+from F16 import *
 from F17 import *
 
 # Menu
@@ -84,6 +87,12 @@ def mainMenu(role,username):
             print("Maaf, fungsi ini hanya dapat diakses oleh user")
     elif (c == "12"):
         menuEkstra()
+    elif (c == "13"):
+        help()
+    elif (c == "14"):
+        load(name_folder)
+    elif (c == "15"):
+        save(user, game, riwayat, kepemilikan)  
     elif (c == "16"):
         exit()
         return
