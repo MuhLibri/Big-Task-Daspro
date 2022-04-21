@@ -78,7 +78,7 @@ def sortingID (skema_sorting):
         #2. MENYIMPAN SEMUA ANGKA ID DALAM STRING
         numId = ""
         for line in data:
-            k=parse.parse(line)[0]
+            k=parse(line)[0]
             for line in k:
                 if line!="i" and line!="d" and line!="G":
                     numId = str(numId)+str(line)
