@@ -103,7 +103,7 @@ def sortingID (skema_sorting):
         #5. MENULISKAN KE LAYAR
         for k in range (IndEfektif) :
             for line in data: 
-                if "G"+str(Mid[k])==parse(line)[0]:
+                if "GAME"+str(Mid[k])==parse(line)[0]:
                     arr = parse(line)
                     print(arr[0],"|",arr[1],"|",arr[2],"|",arr[3],"|",arr[4],"|",arr[5],"|")    
         f.close()
