@@ -1,14 +1,5 @@
 from functions import *
 
-def gantiChar(word , a, b): #Fungsi yang mengganti suatu character a menjadi character baru b pada suatu string/word #COMPLETE
-    new_string = "" #prekondisi awal string kosong
-    for char in word:
-        if char != a:
-            new_string += char
-        else:
-            new_string += b
-    return new_string
-
 def homemade_split(word, delimiter): #Fungsi yang mengubah string menjadi elemen pada array yang dipisahkan oleh delimiter
     jmlh_elmt = 1                     
     for i in word:
@@ -30,6 +21,23 @@ def homemade_split(word, delimiter): #Fungsi yang mengubah string menjadi elemen
         j += 1
     return li
 
+def gantiChar(word , a, b): #Fungsi yang mengganti suatu character a menjadi character baru b pada suatu string/word #COMPLETE
+    new_string = "" #prekondisi awal string kosong
+    for char in word:
+        if char != a:
+            new_string += char
+        else:
+            new_string += b
+    return new_string
+
+def cek_data(matriks_csv, elmt, kolom): #Fungsi yang mengecek apakah suatu elemen terdapat pada kolom matriks tertentu
+    existence = False
+    for line in matriks_csv:
+        if line[kolom] == elmt:
+            existence = True
+            break
+    return existence
+
 def convertToMatriks(nama_file):#Fungsi yang mengubah data file csv menjadi matriks
     file_open = open(nama_file, "r")
     reads_file = file_open.readlines()
@@ -42,14 +50,6 @@ def convertToMatriks(nama_file):#Fungsi yang mengubah data file csv menjadi matr
         matriks_csv[i] = homemade_split(line, ";")
         i += 1
     return matriks_csv  
-
-def cek_data(matriks_csv, elmt, kolom): #Fungsi yang mengecek apakah suatu elemen terdapat pada kolom matriks tertentu
-    existence = False
-    for line in matriks_csv:
-        if line[kolom] == elmt:
-            existence = True
-            break
-    return existence
 
 def find_indeks(matriks_csv, elmt, kolom): #Fungsi yang menghasilkan indeks di mana pertama kali suatu elemen pada kolom ditemukan
     i = 0
@@ -70,8 +70,7 @@ def topup_procedure(username, saldo_topup, matriks_csv): #Prosedur topup saldo u
         saldo_topup = int(input("Masukan saldo : "))
 
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) + saldo_topup) #Assign saldo baru ke saldo lama (hanya dalam memori) sebelum disave
-    matriks_csv[indeks][2]  = nama
-
+    nama = matriks_csv[indeks][2]
     if saldo_topup > 0:
         print(f"Top up berhasil. Saldo {nama} bertambah menjadi {(matriks_csv[indeks][5])}.")
     elif saldo_topup == 0:
@@ -82,10 +81,9 @@ def topup_procedure(username, saldo_topup, matriks_csv): #Prosedur topup saldo u
 
 def topup(matriks_csv): #Prosedur input username dan saldo top up
     username = input("Masukan username : ")
-    saldo_topup = int(input("Masukkan saldo: "))
+    saldo_topup = int(input("Masukan saldo : "))
     topup_procedure(username, saldo_topup, matriks_csv)
 
 
 # '''Contoh Pemakaian :'''
-# topup(convertToMatriks("user.csv"))
-
+#topup(convertToMatriks("user.csv"))
