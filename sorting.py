@@ -45,7 +45,7 @@ def sortingHarga(skema_sorting):
     Msort = ["" for i in range (IndEfektif)]
     i = 0
     for line in data:
-        if parse.parse(line)[4] != "harga" :
+        if parse(line)[4] != "harga" :
             Msort[i] = int(parse.parse(line)[4])
             i = i+1
     #3. SORTING HARGA DALAM MATRIKS
