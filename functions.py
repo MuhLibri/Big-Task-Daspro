@@ -105,7 +105,7 @@ def regData(register_name,register_username,register_password):         # Meregi
     register_info = open("data_login.csv",'w')
     write_register = register_info.write(new_data)
     register_info.close()
-    return write_register
+    return
 
 def cariID(username):           # Mencari ID pengguna berdasarkan username
     login_info = open("data_login.csv",'r')
