@@ -74,7 +74,7 @@ def cekUsernameLama(register_username):         # Mengecek apakah username sudah
     register_info.close()
     return True
 
-def cekKosong(a,b,c):
+def cekRegKosong(a,b,c):
     return (a != "") and (b != "") and (c != "")
 
 def addLastID():        # Menambah 1 angka ID terakhir untuk setiap ID baru yang diregistrasikan
