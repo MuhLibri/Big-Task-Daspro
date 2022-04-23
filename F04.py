@@ -17,7 +17,7 @@ def tambahGame () :
         harga=input("Masukkan harga: ")
         stok=input("Masukkan stok awal: ")
     #Generator id game
-    gid = "GAME"+(idGame.make_id(tahun_rilis,(float(harga)),stok))
+    gid = "GAME"+(idGame.make_id(int(tahun_rilis),int(harga),int(stok)))
     #Menjadikan semua input dan id game sebagai satu baris dengan array
     lines=["\n", gid, ";", nama,";",kategori,";",tahun_rilis,";",harga,";",stok]
     print("Selamat! Berhasil menambahkan game", nama)
