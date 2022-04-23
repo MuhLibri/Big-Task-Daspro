@@ -125,9 +125,6 @@ def tampilkan_game_dimiliki(num,a,b,c,d,e,ln,lg):       # Menampilkan game yang 
         print("%i."%num, "", a, "|", b, "%s|"%(" " *(ln-countLen(b))), c, "%s|"%(" " *(lg-countLen(c))), d, "|", e)
     return
 
-def Kosong(a):
-    return (a == "")
-
 def cleanPrintStore(num,a,b,c,d,e,f,ln,lg,lp):      # Menampilkan Game di toko
     if countLen(str(num)) == 1:
         print("%i."%num, "  ", a, "|", b, "%s|"%(" " *(ln-countLen(b))), c, "%s|"%(" " *(lg-countLen(c))), d, "|", e, "%s|"%(" " *(lp-countLen(e))), f)
