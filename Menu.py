@@ -26,9 +26,9 @@ def mainMenu(role,username):
     print("03 Ubah Game pada Toko                                                   11 Riwayat Pembelian")
     print("04 Ubah Stok Game pada Toko                                              12 Ekstra")
     print("05 List Game di Toko berdasarkan ID, Tahun Rilis, dan Harga              13 Help")
-    print("06 Beli Game                                                             14 Load")
-    print("07 Lihat Game yang Dimiliki                                              15 Save")
-    print("08 Cari Game yang dimiliki dari ID dan Tahun Rilis                       16 Exit\n")
+    print("06 Beli Game                                                             14 Save")
+    print("07 Lihat Game yang Dimiliki                                              15 Exit")
+    print("08 Cari Game yang dimiliki dari ID dan Tahun Rilis\n")
     c = input()
     print()
     if (c == "01"):
@@ -90,10 +90,8 @@ def mainMenu(role,username):
     elif (c == "13"):
         help()
     elif (c == "14"):
-        load(name_folder)
-    elif (c == "15"):
         save(user, game, riwayat, kepemilikan)  
-    elif (c == "16"):
+    elif (c == "15"):
         exit()
         return
     else:
