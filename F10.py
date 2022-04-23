@@ -2,13 +2,6 @@
 from functions import *
 from F09 import *
 
-def cekOwnedGame(GameID,username):
-    M = kepemilikan_game(username)
-    for i in range (countLen(M)):
-        if (GameID == M[i]):
-            return True
-    return False
-
 def ownedIDYR(username):
     longest_name = lenMax(1)
     longest_genre = lenMax(2)
