@@ -7,7 +7,7 @@ def register():
     register_name = input("Masukkan Nama: ")
     register_username = input("Masukkan Username: ")
     register_password = input("Masukkan Password: ")
-    while (not cekKarakterUsername(register_username)) or (not cekUsernameLama(register_username)) or (not cekKosong(register_name,register_username,register_password)):
+    while (not cekKarakterUsername(register_username)) or (not cekUsernameLama(register_username)) or (not cekRegKosong(register_name,register_username,register_password)):
         if not cekKarakterUsername(register_username):
             print("Username hanya dapat berisikan alfabet A-Za-z, underscore “_”, strip “-”, dan angka 0-9. Silahkan ulangi registrasi!")
         elif not cekUsernameLama(register_username):
