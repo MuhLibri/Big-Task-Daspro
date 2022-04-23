@@ -14,7 +14,7 @@ def ownedIDYR(username):
     print("Daftar game pada inventory yang memenuhi kriteria: ")
     while (search_game != ""):
         if cekOwnedGame(parse(search_game)[0],username):
-            if ((ID == parse(search_game)[0]) or Kosong(ID)) and ((Year == parse(search_game)[3]) or Kosong(Year)):
+            if ((ID == parse(search_game)[0]) or (ID == "")) and ((Year == parse(search_game)[3]) or (Year == "")):
                 tampilkan_game_dimiliki(num,parse(search_game)[0],parse(search_game)[1],parse(search_game)[2],parse(search_game)[3],parse(search_game)[4],longest_name,longest_genre)
                 num = num + 1
         search_game = game_info.readline()
