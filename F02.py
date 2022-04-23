@@ -15,7 +15,7 @@ def register():
         else: # not cekKosong(register_name,register_username,register_password)
             print("Data registrasi tidak boleh kosong. Silahkan ulangi registrasi!")
         print()
-        print("register")
+        print("Registrasi")
         register_name = input("Masukkan Nama: ")
         register_username = input("Masukkan Username: ")
         register_password = input("Masukkan Password: ")
