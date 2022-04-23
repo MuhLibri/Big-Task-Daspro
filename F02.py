@@ -20,6 +20,5 @@ def register():
         register_username = input("Masukkan Username: ")
         register_password = input("Masukkan Password: ")
     regData(register_name,register_username,register_password)
-    #makeOwnedList(register_username)
     print("Username %s telah berhasil didaftarkan ke dalam “Binomo”."%register_username)
     return
