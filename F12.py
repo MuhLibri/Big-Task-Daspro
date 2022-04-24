@@ -20,11 +20,12 @@ def topup_procedure(username, saldo_topup, matriks_csv): #Prosedur topup saldo u
         print(f"Saldo {nama} telah dikurangi sebesar {abs(saldo_topup)} sehingga tersisa {(matriks_csv[indeks][5])}.")
     return
 
-def topup(matriks_csv): #Prosedur input username dan saldo top up
+def topup(): #Prosedur input username dan saldo top up
+    matriks_csv = convertToMatriks("data_login.csv")
     username = input("Masukan username : ")
     saldo_topup = int(input("Masukan saldo : "))
     topup_procedure(username, saldo_topup, matriks_csv)
 
 
 #Contoh Pemakaian :
-#topup(convertToMatriks("data_login.csv"))
+#topup()
