@@ -80,7 +80,7 @@ def pengurangan_stok_procedure(game_id, matriks_csv): #Prosedur pengurangan stok
     print(f"Stok menjadi {(matriks_csv[indeks][5])}.")
 
 
-def buy_game(username): #Fungsi utama
+def buy_game(): #Fungsi utama
     game_id = input("Masukan game id : ")
     if not (cek_kepemilikan(game_id, username)):
         userid = cek_file_user(username, 0)
