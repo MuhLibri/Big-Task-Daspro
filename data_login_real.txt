@@ -1,9 +1,0 @@
-nama;username;password;role
-Libri;haqufa;tpbasik29;admin
-Najmi;imjan;tpbasik30;admin
-Gibran;narbig;tpbasik31;admin
-Ilham;mahil;tpbasik32;admin
-Aya;aya_kuti;ayay41;user
-Noe-Noe-kun;noire76;darkstat34;user
-Zidane Sopane;platypus_depok;toxic4life;user
-Mr. X;tyranre2;xgongiv2u;user
