@@ -80,7 +80,6 @@ def pengurangan_stok(game_id, matriks_csv): #Prosedur pengurangan stok game
     print(f"Stok menjadi {(matriks_csv[indeks][5])}.")
 
 def buyGame(): #Fungsi utama
-    '''username = login()[0]''' '''ini jika di main program'''
     username = "haqufa" #hanya sebagai contoh jika tidak di main program
     game_id = input("Masukan game id : ")
     if not (cek_kepemilikan(game_id, username)):
@@ -98,11 +97,11 @@ def buyGame(): #Fungsi utama
                 pengurangan_stok(game_id, file_game) #Pengurangan stok game
 
                 '''nunggu fungsi save'''
-                '''writeRiwayat(username, game_id) #Tambah riwayat
+                writeRiwayat(username, game_id) #Tambah riwayat
                 writeKepemilikan(username, game_id) #Tambah kepemilikan'''
             else: #stok = 0
                 print("Stok Game tersebut sedang habis!")
     else:
         print("Anda sudah memiliki Game tersebut!")
 
-'''buyGame()'''
+buyGame()
