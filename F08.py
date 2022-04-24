@@ -22,7 +22,7 @@ def cek_kepemilikan(game_id, username): #Fungsi untuk mengecek apakah user sudah
         file_kepemilikan.close()
         return False
         
-def cek_file_game(game_id, indeks_kolom):#Fungsi untuk mencari data di game.csv berdasarkan game_id dan mereturn data berdasarkan indeks_kolom
+def cek_file_game(game_id, indeks_kolom):#Fungsi untuk mencari data di store_game.csv berdasarkan game_id dan mereturn data berdasarkan indeks_kolom
         file_game = open('store_game.csv', 'r') #indeks_kolom; nama = 1, harga = 4 , stok = 5
         read_file = file_game.readline()
         while (read_file != ""):
