@@ -88,7 +88,7 @@ def addLastID():        # Menambah 1 angka ID terakhir untuk setiap ID baru yang
     last_id = int(last_id) + 1
     return str(last_id)       
 
-def newStringData(register_name,register_username,register_password):       # string data baru
+def newStringData(register_name,register_username,register_password):       # String data baru
     new_reg = addLastID() + ";" + register_name + ";" + register_username + ";" + encript(register_password,keyGenerator(register_password)) + ";" + "user" + ";" + "0"
     new_string = ""
     register_info = open("data_login.csv",'r')
@@ -259,3 +259,63 @@ def overwrite(nama_file, matriks):
             if (i != (panjang(matriks) - 1)):
                 line += '\n'
             data.write(line)
+
+def konsDot(array, element): #Prosedur menambahkan sebuah elemen ke belakang array
+    array += [element]
+
+def homemade_split(word, delimiter): #Fungsi yang mengubah string menjadi elemen pada array yang dipisahkan oleh delimiter
+    jmlh_elmt = 1                     
+    for i in word:
+        if i == delimiter:
+            jmlh_elmt += 1
+    li = [" " for i in range(jmlh_elmt)]
+    new_string = ""
+    indeks = 0
+    j = 0
+    for character in word:
+        if character != delimiter:
+            new_string += character
+            if (j == countLen(word)-1):
+                li[indeks] = new_string
+        else:
+            li[indeks] = new_string
+            new_string = ""
+            indeks += 1
+        j += 1
+    return li
+
+def cek_data(matriks_csv, elmt, kolom): #Fungsi yang mengecek apakah suatu elemen terdapat pada kolom matriks tertentu
+    existence = False
+    for line in matriks_csv:
+        if line[kolom] == elmt:
+            existence = True
+            break
+    return existence
+
+def gantiChar(word , a, b): #Fungsi yang mengganti suatu character a menjadi character baru b pada suatu string/word #COMPLETE
+    new_string = "" #prekondisi awal string kosong
+    for char in word:
+        if char != a:
+            new_string += char
+        else:
+            new_string += b
+    return new_string
+
+def convertToMatriks(nama_file):#Fungsi yang mengubah data file csv menjadi matriks
+    file_open = open(nama_file, "r")
+    reads_file = file_open.readlines()
+    file_open.close()
+
+    G = [gantiChar(line, "\n", "") for line in reads_file]
+    matriks_csv = [[] for i in range(countLen(G))] #Deklarasi matriks berupa list untuk list kosong yang akan diisi elemen
+    i = 0
+    for line in G:
+        matriks_csv[i] = homemade_split(line, ";")
+        i += 1
+    return matriks_csv  
+
+def find_indeks(matriks_csv, elmt, kolom): #Fungsi yang menghasilkan indeks di mana pertama kali suatu elemen pada kolom ditemukan
+    i = 0
+    while elmt != matriks_csv[i][kolom] and i < (countLen(matriks_csv)-1):
+        i += 1
+    return i #indeks
