@@ -1,15 +1,11 @@
 from functions import *
 
-def cekOwnedGame(GameID,username):
+def cekOwnedGame(GameID,username):#Fungsi yang melihat apakah user sudah memiliki game tersebut
     M = kepemilikan_game(username)
     for i in range (countLen(M)):
         if (GameID == M[i]):
             return True
     return False
-
-def konsDot(array, element): #Prosedur menambahkan sebuah elemen ke belakang array
-    array += [element]
-
 
 def user_id(username : str): #Fungsi untuk mencari user id dari username
         file_user = open('data_login.csv', 'r')
