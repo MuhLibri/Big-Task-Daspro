@@ -80,7 +80,8 @@ def sortingID (skema_sorting):
         for line in data:
             k=parse(line)[0]
             for line in k:
-                if line!="i" and line!="d" and line!="G":
+                if line!="i" and line!="d" and line!="G" and line!="A" and line!="M" and line!="E" and line!="g" and line!="a" and line!="m" and line!="e" and line!="_":
+                    #print(line)
                     numId = str(numId)+str(line)
         #3. MEMBUAT ARRAY ID
         length = (panjangTeks(numId))
@@ -88,7 +89,7 @@ def sortingID (skema_sorting):
         Mid = [0 for i in range(IndEfektif)]
         j=0
         for i in range (IndEfektif):
-            Mid[i] = int(numId[j]+numId[j+1]+numId[j+2])
+            Mid[i] = (numId[j]+numId[j+1]+numId[j+2])
             j=j+3
         #4.SORTING ID ASCENDING
         if IndEfektif>1 :
@@ -105,4 +106,4 @@ def sortingID (skema_sorting):
             for line in data: 
                 if "GAME"+str(Mid[k])==parse(line)[0]:
                     arr = parse(line)
-                    print(arr[0],"|",arr[1],"|",arr[2],"|",arr[3],"|",arr[4],"|",arr[5],"|")    
+                    print(arr[0],"|",arr[1],"|",arr[2],"|",arr[3],"|",arr[4],"|",arr[5],"|")   
