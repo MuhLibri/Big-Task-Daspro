@@ -93,9 +93,9 @@ def buyGame(username): #Prosedur utama
                 pengurangan_saldo(username, game_id, file_user) #Pengurangan saldo user
                 pengurangan_stok(game_id, file_game) #Pengurangan stok game
 
-                '''nunggu fungsi save'''
-                writeRiwayat(username, game_id) #Tambah riwayat
-                writeKepemilikan(username, game_id) #Tambah kepemilikan'''
+               
+                #writeRiwayat(username, game_id) #Tambah riwayat
+                #writeKepemilikan(username, game_id) #Tambah kepemilikan'''
             else: #stok = 0
                 print("Stok Game tersebut sedang habis!")
     else:
