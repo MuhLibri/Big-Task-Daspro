@@ -237,28 +237,11 @@ def cekWin(P,pl):       # Memeriksa kemenangan
         return True 
     return False
 
-def Array(arr1, item):
-    
-    return arr1 + item
-
-def panjang(item):
-
-    counter = 0
-    for _ in item:
-        counter += 1
-    return counter
-
-def overwrite(nama_file, matriks):
-    with open(nama_file, 'w+') as data:
-        for i in range(panjang(matriks)):
-            line = ""
-            for j in range(panjang(matriks[i])):
-                line += str(matriks[i][j])
-                if j != panjang(matriks[i]) - 1:
-                    line += ';'
-            if (i != (panjang(matriks) - 1)):
-                line += '\n'
-            data.write(line)
+def jumlah(df):
+    len=0
+    for i in df:
+        len+=1
+    return len
 
 def konsDot(array, element): #Prosedur menambahkan sebuah elemen ke belakang array
     array += [element]
