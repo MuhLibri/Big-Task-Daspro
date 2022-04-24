@@ -7,7 +7,7 @@ def cekOwnedGame(GameID,username):#Fungsi yang melihat apakah user sudah memilik
             return True
     return False
 
-def user_id(username : str): #Fungsi untuk mencari user id dari username
+def user_id(username): #Fungsi untuk mencari user id dari username
         file_user = open('data_login.csv', 'r')
         read_file = file_user.readline()
         while (read_file != ""):
@@ -16,7 +16,8 @@ def user_id(username : str): #Fungsi untuk mencari user id dari username
                 return parse(read_file)[0]
             read_file = file_user.readline()
 
-def kepemilikan_game(username : str): #Fungsi untuk membuat list berupa game yang dimiliki user
+
+def kepemilikan_game(username): #Fungsi untuk membuat list berupa game yang dimiliki user
         file_kepemilikan = open('kepemilikan.csv', 'r')
         read_file = file_kepemilikan.readline()
         G = []
@@ -28,7 +29,8 @@ def kepemilikan_game(username : str): #Fungsi untuk membuat list berupa game yan
         file_kepemilikan.close()
         return G
 
-def list_game(username : str): #Prosedur untuk melihat game yang dimiliki user serta beberapa info lainnya
+def list_game(): #Prosedur untuk melihat game yang dimiliki user serta beberapa info terkait
+    username = "haqufa" #hanya sebagai contoh jika tidak di main program
     longest_name = lenMax(1)
     longest_genre = lenMax(2)
     game_info = open("store_game.csv",'r')
