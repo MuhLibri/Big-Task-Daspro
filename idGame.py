@@ -20,4 +20,6 @@ def validasiIdGame(x, dataSource) :
     f.close()
     if count==0 :
         print("Tidak ada game dengan ID tersebut!")
-
+        return False
+    else:
+        return True
