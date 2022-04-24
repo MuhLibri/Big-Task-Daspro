@@ -25,7 +25,3 @@ def topup(): #Prosedur input username dan saldo top up
     username = input("Masukan username : ")
     saldo_topup = int(input("Masukan saldo : "))
     topup_procedure(username, saldo_topup, matriks_csv)
-
-
-#Contoh Pemakaian :
-#topup()
