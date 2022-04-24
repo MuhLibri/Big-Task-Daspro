@@ -236,3 +236,26 @@ def cekWin(P,pl):       # Memeriksa kemenangan
     elif (pl == P[0][2] == P[1][1] == P[2][0]):
         return True 
     return False
+
+def Array(arr1, item):
+    
+    return arr1 + item
+
+def panjang(item):
+
+    counter = 0
+    for _ in item:
+        counter += 1
+    return counter
+
+def overwrite(nama_file, matriks):
+    with open(nama_file, 'w+') as data:
+        for i in range(panjang(matriks)):
+            line = ""
+            for j in range(panjang(matriks[i])):
+                line += str(matriks[i][j])
+                if j != panjang(matriks[i]) - 1:
+                    line += ';'
+            if (i != (panjang(matriks) - 1)):
+                line += '\n'
+            data.write(line)
