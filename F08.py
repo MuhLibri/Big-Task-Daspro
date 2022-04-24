@@ -79,7 +79,7 @@ def pengurangan_stok(game_id, matriks_csv): #Prosedur pengurangan stok game
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) - 1) #Assign stok baru ke stok lama (hanya dalam memori) sebelum disave
     print(f"Stok menjadi {(matriks_csv[indeks][5])}.")
 
-def buyGame(): #Fungsi utama
+def buyGame(): #Prosedur utama
     username = "haqufa" #hanya sebagai contoh jika tidak di main program
     game_id = input("Masukan game id : ")
     if not (cek_kepemilikan(game_id, username)):
