@@ -69,16 +69,17 @@ def writeKepemilikan(game_id): #Fungsi untuk menulis string baru pada file kepem
     file_kepemilikan.close()
     return write_kepemilikan
 
-def pengurangan_saldo_procedure(username, game_id, matriks_csv): #Prosedur topup saldo user
+def pengurangan_saldo(username, game_id, matriks_csv): #Prosedur topup saldo user
     indeks = find_indeks(matriks_csv, username, 2)
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) - int(cek_file_game(game_id, 4))) #Assign saldo baru ke saldo lama (hanya dalam memori) sebelum disave
     print(f"Saldo menjadi {(matriks_csv[indeks][5])}.")
 
-def pengurangan_stok_procedure(game_id, matriks_csv): #Prosedur pengurangan stok game
+def pengurangan_stok(game_id, matriks_csv): #Prosedur pengurangan stok game
     indeks = find_indeks(matriks_csv, game_id, 0)#
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) - 1) #Assign stok baru ke stok lama (hanya dalam memori) sebelum disave
     print(f"Stok menjadi {(matriks_csv[indeks][5])}.")
 
+username = "haqufa"
 
 def buyGame(): #Fungsi utama
     game_id = input("Masukan game id : ")
@@ -93,8 +94,8 @@ def buyGame(): #Fungsi utama
 
                 file_user = convertToMatriks("data_login.csv")
                 file_game = convertToMatriks("store_game.csv")
-                pengurangan_saldo_procedure(username, game_id, file_user) #Pengurangan saldo user
-                pengurangan_stok_procedure(game_id, file_game) #Pengurangan stok game
+                pengurangan_saldo(username, game_id, file_user) #Pengurangan saldo user
+                pengurangan_stok(game_id, file_game) #Pengurangan stok game
 
                 '''nunggu fungsi save'''
                 '''writeRiwayat(game_id) #Tambah riwayat
