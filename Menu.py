@@ -72,7 +72,7 @@ def mainMenu(role,username):
         storeGameSearch()
     elif (c == "10"):
         if (role == "admin"):
-            topup(convertToMatriks("data_login.csv"))
+            topup()
         else: # role == "user"
             print("Maaf, fungsi ini hanya dapat diakses oleh admin")
     elif (c == "11"):
