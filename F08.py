@@ -43,12 +43,11 @@ def newStringRiwayat(username,game_id): #Fungsi untuk menambah string baru pada 
     file_riwayat.close()
     return new_string
 
-def writeRiwayat(username, game_id):#Fungsi untuk menulis string baru pada file riwayat.csv
+def writeRiwayat(username, game_id):#Prosedur untuk menulis string baru pada file riwayat.csv
     new_data = newStringRiwayat(username, game_id)
     file_riwayat = open("riwayat.csv",'w')
     write_riwayat = file_riwayat.write(new_data)
     file_riwayat.close()
-    return write_riwayat
 
 def newStringKepemilikan(username, game_id): #Fungsi untuk menambah string baru pada file kepemilikan.csv
     new_kepemilikan = game_id + ';' + cek_file_user(username, 0)
@@ -62,12 +61,11 @@ def newStringKepemilikan(username, game_id): #Fungsi untuk menambah string baru 
     file_kepemilikan.close()
     return new_string
 
-def writeKepemilikan(username, game_id): #Fungsi untuk menulis string baru pada file kepemilikan.csv
+def writeKepemilikan(username, game_id): #Prosedur untuk menulis string baru pada file kepemilikan.csv
     new_data = newStringKepemilikan(username, game_id)
     file_kepemilikan = open("kepemilikan.csv",'w')
     write_kepemilikan = file_kepemilikan.write(new_data)
     file_kepemilikan.close()
-    return write_kepemilikan
 
 def pengurangan_saldo(username, game_id, matriks_csv): #Prosedur topup saldo user
     indeks = find_indeks(matriks_csv, username, 2)
@@ -81,7 +79,7 @@ def pengurangan_stok(game_id, matriks_csv): #Prosedur pengurangan stok game
 
 def buyGame(): #Prosedur utama
     username = "haqufa" #hanya sebagai contoh jika tidak di main program
-    game_id = input("Masukan game id : ")
+    game_id = input("Masukan ID Game : ")
     if not (cek_kepemilikan(game_id, username)):
         userid = cek_file_user(username, 0)
         if int(cek_file_user(username, 5)) <  int(cek_file_game(game_id, 4)): #if saldo < harga game
