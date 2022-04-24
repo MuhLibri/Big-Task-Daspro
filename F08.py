@@ -1,7 +1,6 @@
 import datetime
 from functions import *
 
-
 def cek_file_user(username, indeks_kolom): #Fungsi untuk mencari data di user.csv berdasarkan username dan mereturn data berdasarkan indeks_kolom
         file_user = open('data_login.csv', 'r')  #indeks_kolom; saldo = 5, user_id = 0
         read_file = file_user.readline()
@@ -11,7 +10,7 @@ def cek_file_user(username, indeks_kolom): #Fungsi untuk mencari data di user.cs
                 return parse(read_file)[indeks_kolom]
             read_file = file_user.readline()
 
-def cek_kepemilikan(game_id, username):
+def cek_kepemilikan(game_id, username): #Fungsi untuk mengecek apakah user sudah memiliki game tersebut
         file_kepemilikan = open('kepemilikan.csv', 'r')
         read_file = file_kepemilikan.readline()
         userid = cek_file_user(username, 0)
@@ -32,7 +31,7 @@ def cek_file_game(game_id, indeks_kolom):#Fungsi untuk mencari data di game.csv 
                 return parse(read_file)[indeks_kolom]
             read_file = file_game.readline()
 
-def newStringRiwayat(username,game_id):
+def newStringRiwayat(username,game_id): #Fungsi untuk menambah string baru pada file riwayat.csv
     new_riwayat = cek_file_user(username, 0)  + ';' + game_id + ';' + cek_file_game(game_id, 1) + ';' + cek_file_game(game_id, 4) + ';' + str(datetime.datetime.now().year)
     new_string = ""
     file_riwayat = open("riwayat.csv",'r')
@@ -44,14 +43,14 @@ def newStringRiwayat(username,game_id):
     file_riwayat.close()
     return new_string
 
-def writeRiwayat(game_id):
+def writeRiwayat(game_id):#Fungsi untuk menulis string baru pada file riwayat.csv
     new_data = newStringRiwayat(game_id)
     file_riwayat = open("riwayat.csv",'w')
     write_riwayat = file_riwayat.write(new_data)
     file_riwayat.close()
     return write_riwayat
 
-def newStringKepemilikan(username,game_id):
+def newStringKepemilikan(username,game_id): #Fungsi untuk menambah string baru pada file kepemilikan.csv
     new_kepemilikan = game_id + ';' + cek_file_user(username, 0)
     new_string = ""
     file_kepemilikan = open("kepemilikan.csv",'r')
@@ -63,84 +62,25 @@ def newStringKepemilikan(username,game_id):
     file_kepemilikan.close()
     return new_string
 
-def writeKepemilikan(game_id):
+def writeKepemilikan(game_id): #Fungsi untuk menulis string baru pada file kepemilikan.csv
     new_data = newStringKepemilikan(game_id)
     file_kepemilikan = open("kepemilikan.csv",'w')
     write_kepemilikan = file_kepemilikan.write(new_data)
     file_kepemilikan.close()
     return write_kepemilikan
 
-def gantiChar(word , a, b): #Fungsi yang mengganti suatu character a menjadi character baru b pada suatu string/word #COMPLETE
-    new_string = "" #prekondisi awal string kosong
-    for char in word:
-        if char != a:
-            new_string += char
-        else:
-            new_string += b
-    return new_string
-
-def homemade_split(word, delimiter): #Fungsi yang mengubah string menjadi elemen pada array yang dipisahkan oleh delimiter
-    jmlh_elmt = 1                     
-    for i in word:
-        if i == delimiter:
-            jmlh_elmt += 1
-    li = [" " for i in range(jmlh_elmt)]
-    new_string = ""
-    indeks = 0
-    j = 0
-    for character in word:
-        if character != delimiter:
-            new_string += character
-            if (j == countLen(word)-1):
-                li[indeks] = new_string
-        else:
-            li[indeks] = new_string
-            new_string = ""
-            indeks += 1
-        j += 1
-    return li
-
-def convertToMatriks(nama_file):#Fungsi yang mengubah data file csv menjadi matriks
-    file_open = open(nama_file, "r")
-    reads_file = file_open.readlines()
-    file_open.close()
-
-    G = [gantiChar(line, "\n", "") for line in reads_file]
-    matriks_csv = [[] for i in range(countLen(G))] #Deklarasi matriks berupa list untuk list kosong yang akan diisi elemen
-    i = 0
-    for line in G:
-        matriks_csv[i] = homemade_split(line, ";")
-        i += 1
-    return matriks_csv
-
-def cek_data(matriks_csv, elmt, kolom): #Fungsi yang mengecek apakah suatu elemen terdapat pada kolom matriks tertentu
-    existence = False
-    for line in matriks_csv:
-        if line[kolom] == elmt:
-            existence = True
-            break
-    return existence
-
-def find_indeks(matriks_csv, elmt, kolom): #Fungsi yang menghasilkan indeks di mana pertama kali suatu elemen pada kolom ditemukan
-    i = 0
-    while elmt != matriks_csv[i][kolom] and i < (countLen(matriks_csv)-1):
-        i += 1
-    return i #indeks
-
 def pengurangan_saldo_procedure(username, game_id, matriks_csv): #Prosedur topup saldo user
     indeks = find_indeks(matriks_csv, username, 2)
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) - int(cek_file_game(game_id, 4))) #Assign saldo baru ke saldo lama (hanya dalam memori) sebelum disave
     print(f"Saldo menjadi {(matriks_csv[indeks][5])}.")
-    return matriks_csv
 
 def pengurangan_stok_procedure(game_id, matriks_csv): #Prosedur pengurangan stok game
     indeks = find_indeks(matriks_csv, game_id, 0)#
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) - 1) #Assign stok baru ke stok lama (hanya dalam memori) sebelum disave
     print(f"Stok menjadi {(matriks_csv[indeks][5])}.")
-    return matriks_csv
 
 
-def buy_game(username):
+def buy_game(username): #Fungsi utama
     game_id = input("Masukan game id : ")
     if not (cek_kepemilikan(game_id, username)):
         userid = cek_file_user(username, 0)
@@ -149,13 +89,14 @@ def buy_game(username):
             
         else:
             if int(cek_file_game(game_id, 5)) > 0: #if stok > 0
-                print("Game "+ '"' + cek_file_game(game_id, 2) + '"' + " berhasil dibeli!")
+                print("Game "+ '"' + cek_file_game(game_id, 1) + '"' + " berhasil dibeli!")
 
                 file_user = convertToMatriks("data_login.csv")
                 file_game = convertToMatriks("store_game.csv")
                 pengurangan_saldo_procedure(username, game_id, file_user) #Pengurangan saldo user
                 pengurangan_stok_procedure(game_id, file_game) #Pengurangan stok game
 
+                '''nunggu fungsi save'''
                 '''writeRiwayat(game_id) #Tambah riwayat
                 writeKepemilikan(game_id) #Tambah kepemilikan'''
             else: #stok = 0
