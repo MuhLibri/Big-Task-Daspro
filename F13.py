@@ -41,9 +41,12 @@ def tampilkan_riwayat(username): #Prosedur menampilkan riwayat transaksi user
             read_file = file_game.readline()
         file_game.close()
 
-def riwayat(username): #Prosedur untuk melihat riwayat user serta beberapa info terkait
+def riwayat(): #Prosedur untuk melihat riwayat user serta beberapa info terkait
+    username = "haqufa" #hanya sebagai contoh jika tidak di main program
     G = kepemilikan_game(username) #Mendeklarasikan list berupa game yang pernah dibeli user yang terdapat di riwayat
     if countLen(G) > 0:
         tampilkan_riwayat(username)
     else: #countLen(G) tidak mungkin negatif sehingga counLen(G) == 0
         print("Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah beli_game untuk membeli.")
+
+riwayat()
