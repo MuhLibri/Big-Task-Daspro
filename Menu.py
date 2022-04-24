@@ -55,7 +55,7 @@ def mainMenu(role,username):
         listGameToko ()         
     elif (c == "06"):
         if (role == "user"):
-            buy_game(username)
+            buyGame(username)
         else: # role == "admin"
             print("Maaf, fungsi ini hanya dapat diakses oleh user")
     elif (c == "07"):
@@ -75,11 +75,6 @@ def mainMenu(role,username):
             topup(convertToMatriks("data_login.csv"))
         else: # role == "user"
             print("Maaf, fungsi ini hanya dapat diakses oleh admin")
-    elif (c == "11"):
-        if (role == "user"):
-            riwayat(username)
-        else: # role == "admin"
-            print("Maaf, fungsi ini hanya dapat diakses oleh user")
     elif (c == "11"):
         if (role == "user"):
             riwayat(username)
