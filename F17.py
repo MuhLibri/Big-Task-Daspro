@@ -10,5 +10,5 @@ def exit():
         print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
         s = input()
     if (s == "Y") or (s == "y"):
-        save(username, store_game, riwayat, kepemilikan)
+        save
     return
