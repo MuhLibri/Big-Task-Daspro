@@ -29,8 +29,7 @@ def kepemilikan_game(username): #Fungsi untuk membuat list berupa game yang dimi
         file_kepemilikan.close()
         return G
 
-def list_game(): #Prosedur untuk melihat game yang dimiliki user serta beberapa info terkait
-    username = "haqufa" #hanya sebagai contoh jika tidak di main program
+def list_game(username): #Prosedur untuk melihat game yang dimiliki user serta beberapa info terkait
     longest_name = lenMax(1)
     longest_genre = lenMax(2)
     game_info = open("store_game.csv",'r')
