@@ -43,14 +43,14 @@ def newStringRiwayat(username,game_id): #Fungsi untuk menambah string baru pada 
     file_riwayat.close()
     return new_string
 
-def writeRiwayat(game_id):#Fungsi untuk menulis string baru pada file riwayat.csv
-    new_data = newStringRiwayat(game_id)
+def writeRiwayat(username, game_id):#Fungsi untuk menulis string baru pada file riwayat.csv
+    new_data = newStringRiwayat(username, game_id)
     file_riwayat = open("riwayat.csv",'w')
     write_riwayat = file_riwayat.write(new_data)
     file_riwayat.close()
     return write_riwayat
 
-def newStringKepemilikan(username,game_id): #Fungsi untuk menambah string baru pada file kepemilikan.csv
+def newStringKepemilikan(username, game_id): #Fungsi untuk menambah string baru pada file kepemilikan.csv
     new_kepemilikan = game_id + ';' + cek_file_user(username, 0)
     new_string = ""
     file_kepemilikan = open("kepemilikan.csv",'r')
@@ -62,8 +62,8 @@ def newStringKepemilikan(username,game_id): #Fungsi untuk menambah string baru p
     file_kepemilikan.close()
     return new_string
 
-def writeKepemilikan(game_id): #Fungsi untuk menulis string baru pada file kepemilikan.csv
-    new_data = newStringKepemilikan(game_id)
+def writeKepemilikan(username, game_id): #Fungsi untuk menulis string baru pada file kepemilikan.csv
+    new_data = newStringKepemilikan(username, game_id)
     file_kepemilikan = open("kepemilikan.csv",'w')
     write_kepemilikan = file_kepemilikan.write(new_data)
     file_kepemilikan.close()
@@ -79,9 +79,9 @@ def pengurangan_stok(game_id, matriks_csv): #Prosedur pengurangan stok game
     matriks_csv[indeks][5] = str(int(matriks_csv[indeks][5]) - 1) #Assign stok baru ke stok lama (hanya dalam memori) sebelum disave
     print(f"Stok menjadi {(matriks_csv[indeks][5])}.")
 
-username = "haqufa"
-
 def buyGame(): #Fungsi utama
+    '''username = login()[0]''' '''ini jika di main program'''
+    username = "haqufa" #hanya sebagai contoh jika tidak di main program
     game_id = input("Masukan game id : ")
     if not (cek_kepemilikan(game_id, username)):
         userid = cek_file_user(username, 0)
@@ -98,9 +98,11 @@ def buyGame(): #Fungsi utama
                 pengurangan_stok(game_id, file_game) #Pengurangan stok game
 
                 '''nunggu fungsi save'''
-                '''writeRiwayat(game_id) #Tambah riwayat
-                writeKepemilikan(game_id) #Tambah kepemilikan'''
+                '''writeRiwayat(username, game_id) #Tambah riwayat
+                writeKepemilikan(username, game_id) #Tambah kepemilikan'''
             else: #stok = 0
                 print("Stok Game tersebut sedang habis!")
     else:
         print("Anda sudah memiliki Game tersebut!")
+
+'''buyGame()'''
