@@ -16,7 +16,6 @@ def user_id(username : str): #Fungsi untuk mencari user id dari username
                 return parse(read_file)[0]
             read_file = file_user.readline()
 
-
 def kepemilikan_game(username : str): #Fungsi untuk membuat list berupa game yang dimiliki user
         file_kepemilikan = open('kepemilikan.csv', 'r')
         read_file = file_kepemilikan.readline()
