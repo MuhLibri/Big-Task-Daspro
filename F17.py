@@ -2,7 +2,7 @@
 from functions import *
 from F16 import *
 
-def exit():
+def exit(username, store_game, riwayat, kepemilikan):
     print("Exit")
     print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
     s = input()
@@ -10,5 +10,5 @@ def exit():
         print("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n)")
         s = input()
     if (s == "Y") or (s == "y"):
-        save   
+        save(username, store_game, riwayat, kepemilikan)
     return
