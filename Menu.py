@@ -87,7 +87,7 @@ def mainMenu(role,username):
     elif (c == "14"):
         save(user, game, riwayat, kepemilikan)  
     elif (c == "15"):
-        exit()
+        exit(username, store_game, riwayat, kepemilikan)
         return
     else:
         print("Masukan tidak valid")
