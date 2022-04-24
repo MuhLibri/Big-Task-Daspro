@@ -1,6 +1,6 @@
 from functions import *
 
-def cek_file_user(username, indeks_kolom): #Fungsi untuk mencari data di user.csv berdasarkan username dan mereturn data berdasarkan indeks_kolom
+def cek_file_user(username, indeks_kolom): #Fungsi untuk mencari data di data_login.csv berdasarkan username dan mereturn data berdasarkan indeks_kolom
         file_user = open('data_login.csv', 'r')  #indeks_kolom; saldo = 5, user_id = 0
         read_file = file_user.readline()
         while (read_file != ""):
@@ -28,13 +28,13 @@ def tampilkan_riwayat(username): #Prosedur menampilkan riwayat transaksi user
         k = 0 #untuk nomor yang keprint
         while (read_file != ""):
             M = parse(read_file)
-            G = kepemilikan_game(username) #list game yang dimiliki user
-            for i in range(panjang(G)):
+            G = kepemilikan_game(username) #list id game dari game yang dimiliki user
+            for i in range(countLen(G)):
                 if G[i] == M[1] and cek_file_user(username, 0) == M[0]:
                     M = parse(read_file)
                     k += 1
                     print(f"{k}.", end = " ")
-                    for i in range(panjang(M)):
+                    for i in range(countLen(M)):
                         if i != 0: #menghilangkan kolom pertama yaitu user_id
                             print(M[i], end = " | ")
                     print("\n")
@@ -49,4 +49,4 @@ def riwayat(): #Prosedur untuk melihat riwayat user serta beberapa info terkait
     else: #countLen(G) tidak mungkin negatif sehingga counLen(G) == 0
         print("Maaf, kamu tidak ada riwayat pembelian game. Ketik perintah beli_game untuk membeli.")
 
-riwayat()
+#riwayat()
